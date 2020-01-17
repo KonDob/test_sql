@@ -3,18 +3,15 @@ import os
 import sys
 import sqlite3
 import sys
-import glob
 from CSV_Agent import CSVAgent
 import TableController
+import pandas as pd
+
 
 
 #print(glob.glob())
-csv = CSVAgent()
 PATH_TO_CVS = os.getcwd() + '/Default_data_for_test_task/data.csv'
-ID_ARGUMENT = sys.argv[1]
-print(PATH_TO_CVS)
-print(ID_ARGUMENT)
-
+csv = CSVAgent(PATH_TO_CVS)
 
 def connect_to_db():
     """
@@ -38,4 +35,6 @@ def create_table():
                                         path_to_result_file text NOT NULL,
                                         size_of_result_file text NOT NULL
                                     ); """)
-csv.read_cvs(PATH_TO_CVS)
+result_data = csv.find_record_by_id(PATH_TO_CVS)
+# print(entity)
+print(result_data)
