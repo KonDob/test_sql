@@ -15,6 +15,7 @@ class CSVAgent():
 
     def find_record_by_id(self, id_input=id_input):
         try:
-            return self.csv_file[self.csv_file.id == id_input].at[0, 'name']
-        except KeyError as e:
+            return str(self.csv_file[self.csv_file.id == id_input]).split()[4]
+        except KeyError:
             print("Name with id = {} not found".format(id_input))
+

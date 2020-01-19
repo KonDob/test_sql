@@ -2,17 +2,14 @@
 import os
 import sys
 import sqlite3
-import sys
 from CSV_Agent import CSVAgent
 import Folder_controller
 import TableController
-import pandas as pd
 
-
-# PATH_TO_CVS = os.getcwd() + '/Default_data_for_test_task/data.csv'
 PATH_TO_CVS = os.path.join('Default_data_for_test_task/data.csv')
 csv = CSVAgent(PATH_TO_CVS)
 fc = Folder_controller.Folder()
+
 def connect_to_db():
     """
     Method to create and connect to DB
@@ -35,10 +32,9 @@ def create_table():
                                         path_to_result_file text NOT NULL,
                                         size_of_result_file text NOT NULL
                                     ); """)
+# Find record id data.csv by ID
+fc.create_folder('result_data')
 result_data = csv.find_record_by_id()
-print(result_data)
-fc.create_folder(result_data)
-# print(entity)
 
-# print(PATH_TO_CVS)
-print(result_data)
+# Copiyng ID folder with content to parent folder
+fc.copy_folder(result_data)

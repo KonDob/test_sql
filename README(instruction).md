@@ -13,6 +13,9 @@ Run script by command below
 python create_table.py $ID$
 Where ID is number of data id, which you need to find in data.csv
 
+Folder with ID name and it`s contetn will be created in directory above,
+where script is located. 
+
 
 
 
