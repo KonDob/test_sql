@@ -16,7 +16,9 @@ db.connect_to_db()
 
 #Create Table result_files()
 db.create_table('result_files')
-db.write_data_to_table('result_files','path')
+
+#Write data to table
+db.write_data_to_result_table(1,"fsfd","asdf","asdf")
 # Find record id data.csv by ID
 # fc.create_folder('result_data')
 # result_data = csv.find_record_by_id()

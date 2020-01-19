@@ -29,18 +29,22 @@ class Table():
         # self.cursor = self.connection.cursor()
         self.cursor.execute(""" CREATE TABLE IF NOT EXISTS {} (
                                         id integer PRIMARY KEY,
-                                        path_to_source text NOT NULL,
-                                        path_to_result_file text NOT NULL,
-                                        size_of_result_file text NOT NULL
+                                    path_to_source_data VARCHAR(255),
+                                    path_to_result_file VARCHAR(255),
+                                    size_of_result_file VARCHAR(255)
                                     ); """.format(name))
     
-    def write_data_to_table(self, table_name, *args):
-        self.cursor.execute(
+    def write_data_to_result_table(self,id_column,path_src,
+                            path_result,size_of_result_file):
+        """
+            id_column = id column in table
+            path_src = path_to_source_data column
+            path_result = path_to_result_file
+            size_of_result_file the same column
+        """
+        self.cursor.execute("""INSERT INTO result_files
+                            VALUES('1','2','3','4');          
             """
-            INSERT INTO {}({})
-            VALUES()
-            
-            """.format(table_name,*args)
-        )
-
-    
+            # .format(id_column, path_src, path_result,
+                            # size_of_result_file)
+        )   
