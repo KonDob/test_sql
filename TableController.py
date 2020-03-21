@@ -21,8 +21,7 @@ class Table():
         except EnvironmentError:
             print(EnvironmentError)
 
-
-    def create_table(self,name):
+    def create_table(self, name):
         """
         Create a table
         """
@@ -33,9 +32,9 @@ class Table():
                                     path_to_result_file VARCHAR(255),
                                     size_of_result_file VARCHAR(255)
                                     ); """.format(name))
-    
-    def write_data_to_result_table(self,id_column,path_src,
-                            path_result,size_of_result_file):
+
+    def write_data_to_result_table(self, id_column, path_src,
+                                   path_result, size_of_result_file):
         """
             id_column = id column in table
             path_src = path_to_source_data column
@@ -43,8 +42,4 @@ class Table():
             size_of_result_file the same column
         """
         self.cursor.execute("""INSERT INTO result_files
-                            VALUES('1','2','3','4');          
-            """
-            # .format(id_column, path_src, path_result,
-                            # size_of_result_file)
-        )   
+                            VALUES('1','2','3','4');""")

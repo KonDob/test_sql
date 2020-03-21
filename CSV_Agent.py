@@ -18,4 +18,3 @@ class CSVAgent():
             return str(self.csv_file[self.csv_file.id == id_input]).split()[4]
         except KeyError:
             print("Name with id = {} not found".format(id_input))
-
